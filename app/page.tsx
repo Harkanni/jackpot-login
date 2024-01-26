@@ -17,7 +17,7 @@ export default function Home() {
                   <FaLock size={25} />
                </div>
                <input type="text" placeholder="Password" className="w-[100%] pl-5" />
-            </div>
+            </div> 
             <button className="">SIGN IN</button>
          </form>
          <p>Not a member ? <span>Sign up now</span></p>
