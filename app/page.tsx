@@ -10,15 +10,15 @@ export default function Home() {
                <div className="inputIcon bg-slate-950 p-5">
                   <FaUser size={25} />
                </div>
-               <input type="text" placeholder="Username" className="w-[100%] pl-5" />
+               <input type="text" placeholder="Username" className="w-[100%] pl-5 text-black" />
             </div>
             <div className="formGroup flex">
                <div className="inputIcon bg-slate-950 p-5">
                   <FaLock size={25} />
                </div>
-               <input type="text" placeholder="Password" className="w-[100%] pl-5" />
-            </div> 
-            <button className="">SIGN IN</button>
+               <input type="password" placeholder="Password" className="w-[100%] pl-5 text-black" />
+            </div>
+            <button className="p-4" style={{ backgroundColor: '#e74c87' }}>SIGN IN</button>
          </form>
          <p>Not a member ? <span>Sign up now</span></p>
       </main>
