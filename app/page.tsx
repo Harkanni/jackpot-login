@@ -18,7 +18,7 @@ export default function Home() {
                </div>
                <input type="text" placeholder="Password" className="w-[100%] pl-5" />
             </div>
-            <button>SIGN IN</button>
+            <button className="">SIGN IN</button>
          </form>
          <p>Not a member ? <span>Sign up now</span></p>
       </main>
