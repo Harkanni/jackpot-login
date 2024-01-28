@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+input:focus {
+   border: none !important;
+   outline: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
