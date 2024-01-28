@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa6";
+import { cardImage } from '@/assets'
 
 export default function Home() {
    return (
@@ -17,6 +18,32 @@ export default function Home() {
                   <FaLock size={25} />
                </div>
                <input type="password" placeholder="Password" className="w-[100%] pl-5 text-black" />
+            </div>
+            <div className="flex gap-2 w-[100%]">
+               <div className="w-[25%] h-[25%] cursor-pointer">
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                  />
+               </div>
+               <div className="w-[25%] h-[25%] cursor-pointer">
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                  />
+               </div>
+               <div className="w-[25%] h-[25%] cursor-pointer">
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                  />
+               </div>
+               <div className="w-[25%] h-[25%] cursor-pointer">
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                  />
+               </div>
             </div>
             <button className="p-4 rounded-md" style={{ backgroundColor: '#e74c87' }}>SIGN IN</button>
          </form>

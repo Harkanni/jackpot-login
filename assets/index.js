@@ -3,6 +3,6 @@ import cardImage from './Codingmemes.gif'
 
 
 
-export default {
+export {
    cardImage
 }
