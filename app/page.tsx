@@ -1,9 +1,20 @@
+'use client'
+
 import Image from "next/image";
 import { FaUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa6";
 import { cardImage } from '@/assets'
+import { useState } from "react";
 
 export default function Home() {
+   const [selectedCard, setSelectedCard]: any = useState([])
+
+   const handleClick = (id: number) => {
+      setSelectedCard([...selectedCard, id]);
+   }
+
+
+
    return (
       <main className="bg-slate-800/40 h-[100vh] flex flex-col justify-center items-center">
          <form action="" className="border p-5 rounded-lg flex flex-col gap-3 w-[500px]">
@@ -19,29 +30,33 @@ export default function Home() {
                </div>
                <input type="password" placeholder="Password" className="w-[100%] pl-5 text-black" />
             </div>
-            <div className="flex gap-2 w-[100%]">
-               <div className="w-[25%] h-[25%] cursor-pointer">
+            <div className="flex items-center gap-2 w-[100%] h-[50vh]">
+               <div className="w-[25%] h-[50%] cursor-pointer selected" onClick={() => handleClick(1)}>
                   <Image
                      src={cardImage}
                      alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
                   />
                </div>
-               <div className="w-[25%] h-[25%] cursor-pointer">
+               <div className="w-[25%] h-[50%] cursor-pointer selected" onClick={() => handleClick(2)}>
                   <Image
                      src={cardImage}
                      alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
                   />
                </div>
-               <div className="w-[25%] h-[25%] cursor-pointer">
+               <div className="w-[25%] h-[50%] cursor-pointer selected" onClick={() => handleClick(3)}>
                   <Image
                      src={cardImage}
                      alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
                   />
                </div>
-               <div className="w-[25%] h-[25%] cursor-pointer">
+               <div className="w-[25%] h-[50%] cursor-pointer selected" onClick={() => handleClick(4)}>
                   <Image
                      src={cardImage}
                      alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
                   />
                </div>
             </div>
