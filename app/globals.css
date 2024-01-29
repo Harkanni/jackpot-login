@@ -36,6 +36,30 @@ input:focus {
    transition: all 0.5s ease;
 }
 
+.cardContainer {
+   transition: all 2s ease !important;
+}
+
+.error {
+   border: 5px solid red !important;
+   border-radius: 1rem !important;
+   overflow: hidden;
+   animation: shake 2s ease-in-out;
+}
+
+.correct {
+   border: 5px solid #1a213c !important;
+   border-radius: 1rem !important;
+   overflow: hidden;
+   animation: shake 2s ease-in-out;
+}
+
+@keyframes shake {
+   0%, 100% { transform: rotate(0); }
+   10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+   20%, 40%, 60%, 80% { transform: rotate(5deg); }
+ }
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
