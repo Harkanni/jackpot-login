@@ -12,6 +12,9 @@ export default function Home() {
    const [passwordIsCorrect, setPasswordIsCorrect] = useState<boolean>(true)
    const [cardViscible, setCardViscible] = useState(false)
    const [displayError, setDisplayError] = useState('')
+   const [passwordPlaceholder, setPasswordPlaceholder] = useState('Password')
+   const [disabled, setDisabled] = useState(false)
+
 
    const handleClick = (id: number) => {
       const updatedSelectedCards = selectedCard.includes(id)
@@ -41,6 +44,9 @@ export default function Home() {
       }
       setPasswordIsCorrect(true)
       setSelectedCard([])
+      setPasswordPlaceholder('Password Validated')
+      setDisabled(true)
+      setCardViscible(false)
       return true;
    };
 
@@ -53,24 +59,31 @@ export default function Home() {
 
    return (
       <main className="bg-slate-800/40 min-h-[100vh] flex flex-col justify-center items-center">
-         <form action="" className="border p-5 rounded-lg flex flex-col gap-3 w-[600px]">
-            <div className="formGroup flex rounded-md">
+         <form autoComplete="new-password" action="" className="border p-5 rounded-lg flex flex-col gap-3 w-[600px]">
+         <div className="formGroup flex rounded-md">
                <div className="inputIcon bg-slate-950 p-5">
                   <FaUser size={25} />
                </div>
-               <input autoComplete="off" type="text" placeholder="Username" className="w-[100%] pl-5 text-black removeFocused" />
+               <input autoComplete="new-password" type="text" placeholder="Username" className="w-[100%] pl-5 text-black removeFocused" />
             </div>
+
+                        
             <div className="formGroup flex rounded-md">
                <div className="inputIcon bg-slate-950 p-5">
                   <FaLock size={25} />
                </div>
-               <input name="32" autoComplete="off" type="password" placeholder="Password" className="w-[100%] pl-5 text-black" onFocus={() => setCardViscible(true)} />
+               <div className="w-[100%] h-16 pl-5 text-black bg-slate-50 cursor-text flex items-center" onClick={() => setCardViscible(true)}>
+                  <p className="text-gray-400">{passwordPlaceholder}</p>
+               </div>
             </div>
+
             <button className="p-4 rounded-md" style={{ backgroundColor: '#e74c87' }}>SIGN IN</button>
+         
          </form>
 
-         <div className="portal">
-            <div className={`${cardViscible ? 'flex' : 'hidden opacity-0'} items-end gap-2 w-[600px] h-[50vh] transition-all cardContainer`}>
+         <div className={`portal ${cardViscible ? 'flex' : 'hidden'}`}>
+            <div className="closePortal" onClick={() => setCardViscible(false)}></div>
+            <div className={`${cardViscible ? 'flex z-50' : 'hidden opacity-0'} items-end gap-2 w-[600px] h-[50vh] transition-all cardContainer`}>
                <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(1) ? 'selected' : ''}`} onClick={() => handleClick(1)}>
                   <Image
                      src={cardImage}
@@ -100,9 +113,13 @@ export default function Home() {
                   />
                </div>
             </div>
-            <p className={`${displayError.length ? 'block' : 'hidden'} text-center my-5`}>{displayError}</p>
+            <p className={`${displayError.length ? 'bloc z-50' : 'hidden'} text-center my-5`}>{displayError}</p>
          </div>
          <p>Not a member ? <span>Sign up now</span></p>
+
+
+
+         
       </main>
    );
 }
