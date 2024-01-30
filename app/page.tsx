@@ -11,6 +11,7 @@ export default function Home() {
    const [password, setPassword] = useState([1, 2, 3, 4])
    const [passwordIsCorrect, setPasswordIsCorrect] = useState<boolean>(true)
    const [cardViscible, setCardViscible] = useState(false)
+   const [displayError, setDisplayError] = useState('')
 
    const handleClick = (id: number) => {
       const updatedSelectedCards = selectedCard.includes(id)
@@ -34,6 +35,7 @@ export default function Home() {
          if (selectedCards[i] !== password[i]) {
             setPasswordIsCorrect(false)
             setSelectedCard([])
+            displayErrorMessage('Wrong username or combination try again')
             return false;
          }
       }
@@ -41,6 +43,10 @@ export default function Home() {
       setSelectedCard([])
       return true;
    };
+
+   const displayErrorMessage = (message: string) => {
+      setDisplayError(message)
+   }
 
 
 
@@ -63,35 +69,38 @@ export default function Home() {
             <button className="p-4 rounded-md" style={{ backgroundColor: '#e74c87' }}>SIGN IN</button>
          </form>
 
-         <div className={`${cardViscible ? 'flex' : 'hidden opacity-0'} items-end gap-2 w-[600px] h-[50vh] transition-all cardContainer`}>
-            <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(1) ? 'selected' : ''}`} onClick={() => handleClick(1)}>
-               <Image
-                  src={cardImage}
-                  alt="Card Image"
-                  className={`rounded-md h-[100%] w-[100%]`}
-               />
+         <div className="portal">
+            <div className={`${cardViscible ? 'flex' : 'hidden opacity-0'} items-end gap-2 w-[600px] h-[50vh] transition-all cardContainer`}>
+               <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(1) ? 'selected' : ''}`} onClick={() => handleClick(1)}>
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                     className={`rounded-md h-[100%] w-[100%]`}
+                  />
+               </div>
+               <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(2) ? 'selected' : ''}`} onClick={() => handleClick(2)}>
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
+                  />
+               </div>
+               <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(3) ? 'selected' : ''}`} onClick={() => handleClick(3)}>
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
+                  />
+               </div>
+               <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(4) ? 'selected' : ''}`} onClick={() => handleClick(4)}>
+                  <Image
+                     src={cardImage}
+                     alt="Card Image"
+                     className='rounded-md h-[100%] w-[100%]'
+                  />
+               </div>
             </div>
-            <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(2) ? 'selected' : ''}`} onClick={() => handleClick(2)}>
-               <Image
-                  src={cardImage}
-                  alt="Card Image"
-                  className='rounded-md h-[100%] w-[100%]'
-               />
-            </div>
-            <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(3) ? 'selected' : ''}`} onClick={() => handleClick(3)}>
-               <Image
-                  src={cardImage}
-                  alt="Card Image"
-                  className='rounded-md h-[100%] w-[100%]'
-               />
-            </div>
-            <div className={`${passwordIsCorrect ? 'correct' : 'error'} w-[25%] h-[80%] cursor-pointer ${selectedCard.includes(4) ? 'selected' : ''}`} onClick={() => handleClick(4)}>
-               <Image
-                  src={cardImage}
-                  alt="Card Image"
-                  className='rounded-md h-[100%] w-[100%]'
-               />
-            </div>
+            <p className={`${displayError.length ? 'block' : 'hidden'} text-center my-5`}>{displayError}</p>
          </div>
          <p>Not a member ? <span>Sign up now</span></p>
       </main>
