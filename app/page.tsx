@@ -6,6 +6,8 @@ import { FaLock } from "react-icons/fa6";
 import { cardImage } from '@/assets'
 import { useState } from "react";
 
+import LoadingScreen from '@/components/LoadingScreen';
+
 export default function Home() {
    const [selectedCard, setSelectedCard]: any = useState([])
    const [password, setPassword] = useState([1, 2, 3, 4])
@@ -117,9 +119,9 @@ export default function Home() {
          </div>
          <p>Not a member ? <span>Sign up now</span></p>
 
+         <LoadingScreen />
 
 
-         
       </main>
    );
 }
