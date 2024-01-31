@@ -45,6 +45,7 @@ export default function Home() {
             return false;
          }
       }
+      simulateNetworkRequest()
       setPasswordIsCorrect(true)
       setSelectedCard([])
       setPasswordPlaceholder('Password Validated')
@@ -77,7 +78,7 @@ export default function Home() {
                <div className="inputIcon bg-slate-950 p-5">
                   <FaUser size={25} />
                </div>
-               <input autoComplete="new-password" type="text" placeholder="Username" className="w-[100%] pl-5 text-black removeFocused" />
+               <input disabled={disabled} autoComplete="new-password" type="text" placeholder="Username" className="w-[100%] pl-5 text-black removeFocused" />
             </div>
 
 
@@ -130,9 +131,8 @@ export default function Home() {
          </div>
          <p>Not a member ? <span>Sign up now</span></p>
 
-         <LoadingScreen />
 
-
+         { loading && <LoadingScreen /> }
       </main>
    );
 }
