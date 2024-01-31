@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa6";
 import { cardImage } from '@/assets'
 import { useState } from "react";
+import { IoShieldCheckmark } from "react-icons/io5";
 
 import LoadingScreen from '@/components/LoadingScreen';
 
@@ -88,6 +89,7 @@ export default function Home() {
                </div>
                <div className={`${disabled && 'bg-gray-400/95'} w-[100%] h-16 pl-5 text-black bg-slate-50 cursor-text flex items-center`} onClick={() => setCardViscible(true)}>
                   <p className={`${disabled ? "text-black" : "text-gray-400"}`}>{passwordPlaceholder}</p>
+                  <IoShieldCheckmark className="ml-3" size={20} />
                </div>
             </div>
 
