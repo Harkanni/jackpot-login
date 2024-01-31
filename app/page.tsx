@@ -16,6 +16,7 @@ export default function Home() {
    const [displayError, setDisplayError] = useState('')
    const [passwordPlaceholder, setPasswordPlaceholder] = useState('Password')
    const [disabled, setDisabled] = useState(false)
+   const [loading, setLoading] = useState(false)
 
 
    const handleClick = (id: number) => {
@@ -56,20 +57,30 @@ export default function Home() {
       setDisplayError(message)
    }
 
+   const simulateNetworkRequest = () => {
+      // Simulate a fake network request
+      setLoading(true);
+
+      setTimeout(() => {
+         // Set loading state to false after 5 seconds
+         setLoading(false);
+      }, 5000); // 5000 milliseconds = 5 seconds
+   };
+
 
 
 
    return (
       <main className="bg-slate-800/40 min-h-[100vh] flex flex-col justify-center items-center">
          <form autoComplete="new-password" action="" className="border p-5 rounded-lg flex flex-col gap-3 w-[600px]">
-         <div className="formGroup flex rounded-md">
+            <div className="formGroup flex rounded-md">
                <div className="inputIcon bg-slate-950 p-5">
                   <FaUser size={25} />
                </div>
                <input autoComplete="new-password" type="text" placeholder="Username" className="w-[100%] pl-5 text-black removeFocused" />
             </div>
 
-                        
+
             <div className="formGroup flex rounded-md">
                <div className="inputIcon bg-slate-950 p-5">
                   <FaLock size={25} />
@@ -80,7 +91,7 @@ export default function Home() {
             </div>
 
             <button className="p-4 rounded-md" style={{ backgroundColor: '#e74c87' }}>SIGN IN</button>
-         
+
          </form>
 
          <div className={`portal ${cardViscible ? 'flex' : 'hidden'}`}>
