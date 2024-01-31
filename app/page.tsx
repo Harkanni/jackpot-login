@@ -86,8 +86,8 @@ export default function Home() {
                <div className="inputIcon bg-slate-950 p-5">
                   <FaLock size={25} />
                </div>
-               <div className="w-[100%] h-16 pl-5 text-black bg-slate-50 cursor-text flex items-center" onClick={() => setCardViscible(true)}>
-                  <p className="text-gray-400">{passwordPlaceholder}</p>
+               <div className={`${disabled && 'bg-gray-400/95'} w-[100%] h-16 pl-5 text-black bg-slate-50 cursor-text flex items-center`} onClick={() => setCardViscible(true)}>
+                  <p className={`${disabled ? "text-black" : "text-gray-400"}`}>{passwordPlaceholder}</p>
                </div>
             </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
          <p>Not a member ? <span>Sign up now</span></p>
 
 
-         { loading && <LoadingScreen /> }
+         { loading && <LoadingScreen type={'spinningBubbles'} color={'white'} /> }
       </main>
    );
 }
