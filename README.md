@@ -76,9 +76,7 @@ If you'd like to contribute to this project:
 
 This project is licensed under the [MIT License](LICENSE).
 
----
 
-This README reflects the functionality described in the code you provided. If you need any further customization or additional sections, let me know!
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
